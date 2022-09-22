@@ -32,7 +32,7 @@
     <% end %>
 </table>
 
-<%= link_to "New score", new_score_path %>
+<%= link_to "New score", new_score_path(idDefault: @student.id) %>
 
 <style>
     table, th, td {
