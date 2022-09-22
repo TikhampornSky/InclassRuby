@@ -26,10 +26,17 @@
     <%= form.text_field :grade %>
   </div>
 
-  <div>
-    <%= form.label :student_id, style: "display: block" %>
-    <%= form.text_field :student_id, :value => params["idDefault"] %>
-  </div>
+  <% if (params["idDefault"] != nil)%>
+    <div>
+      <%= form.label :student_id, style: "display: block" %>
+      <%= form.text_field :student_id, :value => params["idDefault"] %>
+    </div>
+  <% else %>
+      <div>
+      <%= form.label :student_id, style: "display: block" %>
+      <%= form.text_field :student_id %>
+    </div>
+  <% end %>
 
   <div>
     <%= form.submit %>
