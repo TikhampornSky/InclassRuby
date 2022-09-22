@@ -1,0 +1,41 @@
+<h1> Lec 07 Ruby On rails </h1>
+<br>
+
+<h3> Data of this students </h3>
+<%= render @student %>
+<hr>
+
+<h3> Score of this student</h3>
+<p> Max Score: </p> <%= @maxSubject %>
+<p> Avg Score: </p> <%= @avgPoint %>
+<table>
+    <tr>
+        <th>Subject</th>
+        <th>Point</th>
+        <th>Grade</th>
+        <th>Delete</th>
+        <th>Edit</th>
+    </tr> 
+    <% @score_all.each do |element| %>
+        <tr>
+            <td> <%= element.subject %></td>
+            <td> <%= element.point %></td>
+            <td> <%= element.grade %></td>
+            <td>
+                <%= button_to "Delete", element, method: :delete %>
+            </td>
+            
+            <td>
+                <%= link_to "Edit", edit_score_path(element) %> 
+            </td>
+        </tr>
+    <% end %>
+</table>
+
+<%= link_to "New score", new_score_path %>
+
+<style>
+    table, th, td {
+        border: 1px solid;
+    }
+</style>
