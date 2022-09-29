@@ -26,10 +26,11 @@
     <%= form.text_field :grade %>
   </div>
 
-  <% if (params["idDefault"] != nil)%>
+  <% #params["idDefault"] != nil %>
+  <% if (session[:who] == 'edit_score')%>
     <div>
-      <%= form.label :student_id, style: "display: block" %>
-      <%= form.text_field :student_id, :value => params["idDefault"] %>
+      <%# <%= form.label :student_id, style: "display: block" %>
+      <%= form.hidden_field :student_id, :value => session[:num] %> 
     </div>
   <% else %>
       <div>

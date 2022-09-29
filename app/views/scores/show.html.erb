@@ -7,7 +7,7 @@
   <% if (session[:who] == 'scoreAll') %>
     <%= link_to "Back to scores", scores_path %>
   <% else %>
-    <%= link_to "Back to scores", "/students/#{@score.student_id}/edit_score" %>
+    <%= link_to "Back to scores", "/students/#{session[:num]}/edit_score" %>
   <% end%>
 
   <%= button_to "Destroy this score", @score, method: :delete %>

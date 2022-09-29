@@ -53,7 +53,11 @@ class ScoresController < ApplicationController
     @score.destroy
 
     respond_to do |format|
-      format.html { redirect_to scores_url, notice: "Score was successfully destroyed." }
+      if (session[:who] == 'scoreAll')
+        format.html { redirect_to scores_url, notice: "Score was successfully destroyed." }
+      else
+        format.html { redirect_to "/students/#{session[:num]}/edit_score", notice: "Score was successfully destroyed." }
+      end
       format.json { head :no_content }
     end
   end
