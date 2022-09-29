@@ -25,6 +25,7 @@ class StudentsController < ApplicationController
     @maxPoint = Score.where(student_id: params[:id]).maximum(:point)
     @maxSubject = Score.where(point: @maxPoint)[0].subject
     @avgPoint = Score.where(student_id: params[:id]).average(:point)
+    session[:who] = 'edit_score'
   end
   #---------------------------------------------------------------------------------------------------------------------
 

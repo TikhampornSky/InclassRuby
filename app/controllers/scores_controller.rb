@@ -4,6 +4,7 @@ class ScoresController < ApplicationController
   # GET /scores or /scores.json
   def index
     @scores = Score.all
+    session[:who] = 'scoreAll'
   end
 
   # GET /scores/1 or /scores/1.json
