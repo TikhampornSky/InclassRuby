@@ -14,7 +14,9 @@
         <th>Point</th>
         <th>Grade</th>
         <th>Delete</th>
-        <th>Edit</th>
+        <% if (session[:logged_in]) %>
+            <th>Edit</th>
+        <% end %>
     </tr> 
     <% @score_all.each do |element| %>
         <tr>
@@ -25,9 +27,11 @@
                 <%= button_to "Delete", element, method: :delete %>
             </td>
             
-            <td>
-                <%= link_to "Edit", edit_score_path(element) %>
-            </td>
+            <% if (session[:logged_in]) %>
+                <td>
+                    <%= link_to "Edit", edit_score_path(element) %>
+                </td>
+            <% end %>
         </tr>
     <% end %>
 </table>

@@ -7,4 +7,7 @@ Rails.application.routes.draw do
   # root "articles#index"
   get 'students/:id/edit_score', to: 'students#edit_score'
   get 'students/:id/edit_score', to: 'scores#new'
+  get 'main/login'
+  get 'main/create'
+  get 'main/destroy'
 end
